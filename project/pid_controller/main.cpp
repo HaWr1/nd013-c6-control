@@ -24,9 +24,10 @@
 #include <typeinfo>
 #include <vector>
 
+#include "json.hpp" // must be included before "behavior_planner_FSM.h"
+
 #include "Eigen/QR"
 #include "behavior_planner_FSM.h"
-#include "json.hpp"
 #include "motion_planner.h"
 #include "pid_controller.h"
 #include "planning_params.h"
