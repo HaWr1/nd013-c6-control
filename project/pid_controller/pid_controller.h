@@ -10,13 +10,12 @@
 class PID {
 public:
   /**
-   * TODO: Create the PID class
+   * Create the PID class
    **/
 
   /*
    * Errors
    */
-  double cte = 0;
   double prev_cte = 0;
   double div_cte = 0;
   double int_cte = 0;
