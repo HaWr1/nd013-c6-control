@@ -224,7 +224,7 @@ int main() {
    **/
   PID pid_steer = PID();
   pid_steer.Init(
-      0.5f, 0.005f, 0.25f, 1.2f,
+      0.3f, 0.001f, 0.7f, 1.2f,
       -1.2f); // limit should be +/- 1.2 according to project instructions
 
   // initialize pid throttle
@@ -235,7 +235,7 @@ int main() {
 
   PID pid_throttle = PID();
   pid_throttle.Init(
-      0.5f, 0.005f, 0.0f, 1.0f,
+      0.2f, 0.002f, 0.02f, 1.0f,
       -1.0f); // limit should be +/- 1.0 according to project instructions
 
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer,
@@ -314,9 +314,9 @@ int main() {
        *and the desired trajectory
        **/
       error_steer =
-          angle_between_points(
-              x_points[x_points.size() - 2], y_points[y_points.size() - 2],
-              x_points[x_points.size() - 1], y_points[y_points.size() - 1]) -
+          angle_between_points(x_position, y_position,
+                               x_points[x_points.size() - 1],
+                               y_points[y_points.size() - 1]) -
           yaw; // the task of the steer controller is
                // to reach the target path, i.e. the heading of the car (yaw)
                // should be aligned to the heading of the path. The heading of
